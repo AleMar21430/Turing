@@ -19,7 +19,6 @@ q_states:
   q_list:
     - "q0"
     - "q1"
-    - "q2"
     - "q_accept"
     - "q_reject"
 delta:
