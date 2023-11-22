@@ -55,7 +55,8 @@ class YAML_Turing:
 			return is_accepted, final_tape_output, yaml_temp
 		except: return False, "Error", "Error"
 
-MACHINE = "identify"
+MACHINE = "altering"
+Inputs = ["abbabb"]
 
 with open(f"{MACHINE}_machine.yaml", "r") as file: config = yaml.safe_load(file)
 machine               = YAML_Turing()
@@ -70,7 +71,6 @@ machine.active_state  = config["q_states"]["initial"]
 machine.tape_alphabet = config["tape_alphabet"]
 machine.initial_state = config["q_states"]["initial"]
 
-Inputs = ["abbabb"]
 
 for Input in Inputs:
 	machine.cadena = Cinta()

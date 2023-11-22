@@ -2,13 +2,11 @@ alphabet:
   - "a"
   - "b"
   - "E"
-  - "X"
 
 tape_alphabet:
   - "a"
   - "b"
   - "E"
-  - "X"
 
 blank: "E"
 
