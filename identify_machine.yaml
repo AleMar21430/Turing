@@ -1,12 +1,12 @@
 alphabet:
-  - "0"
-  - "1"
+  - "a"
+  - "b"
   - "E"
   - "X"
 
 tape_alphabet:
-  - "0"
-  - "1"
+  - "a"
+  - "b"
   - "E"
   - "X"
 
@@ -27,18 +27,18 @@ q_states:
 delta:
   - params:
       initial_state: "q0"
-      tape_input: "0"
+      tape_input: "a"
     output:
       final_state: "q0"
-      tape_output: "0"
+      tape_output: "a"
       tape_displacement: "1"
 
   - params:
       initial_state: "q0"
-      tape_input: "1"
+      tape_input: "b"
     output:
       final_state: "q1"
-      tape_output: "1"
+      tape_output: "b"
       tape_displacement: "1"
 
   - params:
@@ -59,18 +59,18 @@ delta:
 
   - params:
       initial_state: "q1"
-      tape_input: "0"
+      tape_input: "a"
     output:
       final_state: "q1"
-      tape_output: "0"
+      tape_output: "a"
       tape_displacement: "1"
 
   - params:
       initial_state: "q1"
-      tape_input: "1"
+      tape_input: "b"
     output:
       final_state: "q0"
-      tape_output: "1"
+      tape_output: "b"
       tape_displacement: "1"
 
   - params:
