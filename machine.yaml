@@ -1,37 +1,188 @@
 alphabet:
-	- "a"
-	- "b"
-	- "X"
-	- "B"
+  - 'a'
+  - 'b'
+  - 'X'
+  - 'B'
 
 tape_alphabet:
-	- "a"
-	- "b"
-	- "X"
-	- "B"
+  - 'a'
+  - 'b'
+  - 'X'
+  - 'B'
 
-blank: "B"
+blank: 'B'
 
 q_states:
-	initial: "q0"
-	accept: "q_accept"
-	final:
-		- "q_accept"
-		- "q_reject"
-	q_list:
-		- "q0"
-		- "q1"
-		- "q2"
-		- "q3"
-		- "q4"
-		- "q_accept"
-		- "q_reject"
-
+  initial: 'q0'
+  accept: 'q_accept'
+  final:
+    - 'q_accept'
+    - 'q_reject'
+  q_list:
+    - "q0"
+    - "q1"
+    - "q2"
+    - "q3"
+    - "q4"
+    - "q_accept"
+    - "q_reject"
 delta:
-	- params:
-		initial_state: "q0"
-		tape_input: "a"
-		output:
-			final_state: "q1"
-			tape_output: "X"
-			tape_displacement: "R"
+  - params:
+      initial_state: 'q0'
+      tape_input: 'a'
+    output:
+      final_state: 'q1'
+      tape_output: 'X'
+      tape_displacement: "1"
+
+  - params:
+      initial_state: 'q0'
+      tape_input: 'b'
+    output:
+      final_state: 'q2'
+      tape_output: 'X'
+      tape_displacement: "1"
+
+  - params:
+      initial_state: 'q0'
+      tape_input: 'X'
+    output:
+      final_state: 'q4'
+      tape_output: 'X'
+      tape_displacement: "-1"
+
+  - params:
+      initial_state: 'q0'
+      tape_input: 'B'
+    output:
+      final_state: 'q3'
+      tape_output: 'B'
+      tape_displacement: "0"
+
+  - params:
+      initial_state: 'q1'
+      tape_input: 'a'
+    output:
+      final_state: 'q1'
+      tape_output: 'a'
+      tape_displacement: "1"
+
+  - params:
+      initial_state: 'q1'
+      tape_input: 'b'
+    output:
+      final_state: 'q1'
+      tape_output: 'b'
+      tape_displacement: "1"
+
+  - params:
+      initial_state: 'q1'
+      tape_input: 'X'
+    output:
+      final_state: 'q1'
+      tape_output: 'X'
+      tape_displacement: "1"
+
+  - params:
+      initial_state: 'q1'
+      tape_input: 'B'
+    output:
+      final_state: 'q0'
+      tape_output: 'a'
+      tape_displacement: "1"
+
+  - params:
+      initial_state: 'q2'
+      tape_input: 'a'
+    output:
+      final_state: 'q2'
+      tape_output: 'a'
+      tape_displacement: "1"
+
+  - params:
+      initial_state: 'q2'
+      tape_input: 'b'
+    output:
+      final_state: 'q2'
+      tape_output: 'b'
+      tape_displacement: "1"
+
+  - params:
+      initial_state: 'q2'
+      tape_input: 'X'
+    output:
+      final_state: 'q2'
+      tape_output: 'X'
+      tape_displacement: "1"
+
+  - params:
+      initial_state: 'q2'
+      tape_input: 'B'
+    output:
+      final_state: 'q0'
+      tape_output: 'b'
+      tape_displacement: "1"
+
+  - params:
+      initial_state: 'q3'
+      tape_input: 'a'
+    output:
+      final_state: 'q3'
+      tape_output: 'a'
+      tape_displacement: "0"
+
+  - params:
+      initial_state: 'q3'
+      tape_input: 'b'
+    output:
+      final_state: 'q3'
+      tape_output: 'b'
+      tape_displacement: "0"
+
+  - params:
+      initial_state: 'q3'
+      tape_input: 'X'
+    output:
+      final_state: 'q3'
+      tape_output: 'X'
+      tape_displacement: "0"
+
+  - params:
+      initial_state: 'q3'
+      tape_input: 'B'
+    output:
+      final_state: 'q_accept'
+      tape_output: 'B'
+      tape_displacement: "0"
+
+  - params:
+      initial_state: 'q4'
+      tape_input: 'a'
+    output:
+      final_state: 'q4'
+      tape_output: 'a'
+      tape_displacement: "-1"
+
+  - params:
+      initial_state: 'q4'
+      tape_input: 'b'
+    output:
+      final_state: 'q4'
+      tape_output: 'b'
+      tape_displacement: "-1"
+
+  - params:
+      initial_state: 'q4'
+      tape_input: 'X'
+    output:
+      final_state: 'q4'
+      tape_output: 'X'
+      tape_displacement: "-1"
+
+  - params:
+      initial_state: 'q4'
+      tape_input: 'B'
+    output:
+      final_state: 'q0'
+      tape_output: 'X'
+      tape_displacement: "1"
