@@ -53,7 +53,7 @@ class YAML_Turing:
 		final_tape_output = ''.join(self.cadena.cadena).rstrip(self.blank_symbol)
 		return is_accepted, final_tape_output, yaml_temp
 
-MACHINE = "altering"
+MACHINE = "identify"
 
 with open(f"{MACHINE}_machine.yaml", "r") as file: config = yaml.safe_load(file)
 machine               = YAML_Turing()

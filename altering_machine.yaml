@@ -1,16 +1,16 @@
 alphabet:
   - "a"
   - "b"
+  - "E"
   - "X"
-  - "B"
 
 tape_alphabet:
   - "a"
   - "b"
+  - "E"
   - "X"
-  - "B"
 
-blank: "B"
+blank: "E"
 
 q_states:
   initial: "q0"
@@ -45,19 +45,19 @@ delta:
 
   - params:
       initial_state: "q0"
-      tape_input: "X"
+      tape_input: "E"
     output:
-      final_state: "q4"
-      tape_output: "X"
-      tape_displacement: "-1"
+      final_state: "q3"
+      tape_output: "E"
+      tape_displacement: "0"
 
   - params:
       initial_state: "q0"
-      tape_input: "B"
+      tape_input: "X"
     output:
-      final_state: "q3"
-      tape_output: "B"
-      tape_displacement: "0"
+      final_state: "q4"
+      tape_output: "X"
+      tape_displacement: "-1"
 
   - params:
       initial_state: "q1"
@@ -77,21 +77,21 @@ delta:
 
   - params:
       initial_state: "q1"
-      tape_input: "X"
-    output:
-      final_state: "q1"
-      tape_output: "X"
-      tape_displacement: "1"
-
-  - params:
-      initial_state: "q1"
-      tape_input: "B"
+      tape_input: "E"
     output:
       final_state: "q0"
       tape_output: "a"
       tape_displacement: "1"
 
   - params:
+      initial_state: "q1"
+      tape_input: "X"
+    output:
+      final_state: "q1"
+      tape_output: "X"
+      tape_displacement: "1"
+
+  - params:
       initial_state: "q2"
       tape_input: "a"
     output:
@@ -109,21 +109,21 @@ delta:
 
   - params:
       initial_state: "q2"
-      tape_input: "X"
-    output:
-      final_state: "q2"
-      tape_output: "X"
-      tape_displacement: "1"
-
-  - params:
-      initial_state: "q2"
-      tape_input: "B"
+      tape_input: "E"
     output:
       final_state: "q0"
       tape_output: "b"
       tape_displacement: "1"
 
   - params:
+      initial_state: "q2"
+      tape_input: "X"
+    output:
+      final_state: "q2"
+      tape_output: "X"
+      tape_displacement: "1"
+
+  - params:
       initial_state: "q3"
       tape_input: "a"
     output:
@@ -141,18 +141,18 @@ delta:
 
   - params:
       initial_state: "q3"
-      tape_input: "X"
-    output:
-      final_state: "q3"
-      tape_output: "X"
-      tape_displacement: "0"
-
-  - params:
-      initial_state: "q3"
-      tape_input: "B"
+      tape_input: "E"
     output:
       final_state: "q_accept"
-      tape_output: "B"
+      tape_output: "E"
+      tape_displacement: "0"
+
+  - params:
+      initial_state: "q3"
+      tape_input: "X"
+    output:
+      final_state: "q3"
+      tape_output: "X"
       tape_displacement: "0"
 
   - params:
@@ -173,16 +173,18 @@ delta:
 
   - params:
       initial_state: "q4"
+      tape_input: "E"
+    output:
+      final_state: "q0"
+      tape_output: "X"
+      tape_displacement: "1"
+
+  - params:
+      initial_state: "q4"
       tape_input: "X"
     output:
       final_state: "q4"
       tape_output: "X"
       tape_displacement: "-1"
 
-  - params:
-      initial_state: "q4"
-      tape_input: "B"
-    output:
-      final_state: "q0"
-      tape_output: "X"
-      tape_displacement: "1"
+simulation_strings:
