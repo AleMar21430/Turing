@@ -1,7 +1,7 @@
 from typing import List
 import yaml
 
-class Cadena:
+class Cinta:
 	cadena: List[str]
 	head_pos: int = 0
 	blank_s: str
@@ -18,7 +18,7 @@ class Cadena:
 				self.cadena.insert(0, self.blank_s)
 
 class YAML_Turing:
-	cadena: Cadena
+	cadena: Cinta
 	states: str
 	alphabet: str
 
@@ -53,8 +53,9 @@ class YAML_Turing:
 		final_tape_output = ''.join(self.cadena.cadena).rstrip(self.blank_symbol)
 		return is_accepted, final_tape_output, yaml_temp
 
-with open("machine.yaml", "r") as file: config = yaml.safe_load(file)
+MACHINE = "altering"
 
+with open(f"{MACHINE}_machine.yaml", "r") as file: config = yaml.safe_load(file)
 machine               = YAML_Turing()
 machine.cadena          = None
 machine.delta         = config["delta"]
@@ -69,7 +70,7 @@ machine.initial_state = config["q_states"]["initial"]
 
 Input = "abbbb"
 
-machine.cadena = Cadena()
+machine.cadena = Cinta()
 machine.cadena.cadena = list(Input)
 machine.cadena.blank_s = machine.blank_symbol
 
