@@ -13,21 +13,18 @@ blank: "E"
 q_states:
   initial: "q0"
   accept: "q_accept"
-  final:
-    - "q_accept"
-    - "q_reject"
+  final: "q_accept"
   q_list:
     - "q0"
     - "q1"
     - "q_accept"
-    - "q_reject"
-delta:
+transitions:
   - params:
       initial_state: "q0"
       tape_input: "a"
     output:
       final_state: "q0"
-      tape_output: "B"
+      tape_output: "b"
       tape_displacement: "1"
 
   - params:
@@ -35,29 +32,37 @@ delta:
       tape_input: "b"
     output:
       final_state: "q0"
-      tape_output: "A"
+      tape_output: "a"
       tape_displacement: "1"
 
   - params:
       initial_state: "q0"
       tape_input: "E"
     output:
-      final_state: "q2"
+      final_state: "q1"
       tape_output: "E"
-      tape_displacement: "0"
+      tape_displacement: "-1"
+
+  - params:
+      initial_state: "q1"
+      tape_input: "a"
+    output:
+      final_state: "q1"
+      tape_output: "a"
+      tape_displacement: "-1"
+
+  - params:
+      initial_state: "q1"
+      tape_input: "b"
+    output:
+      final_state: "q1"
+      tape_output: "b"
+      tape_displacement: "-1"
 
   - params:
       initial_state: "q1"
       tape_input: "E"
     output:
-      final_state: "q0"
-      tape_output: "A"
-      tape_displacement: "1"
-
-  - params:
-      initial_state: "q2"
-      tape_input: "E"
-    output:
       final_state: "q_accept"
-      tape_output: "E"
-      tape_displacement: "0"
+      tape_output: ""
+      tape_displacement: "1"

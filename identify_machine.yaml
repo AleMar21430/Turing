@@ -22,7 +22,7 @@ q_states:
     - "q2"
     - "q_accept"
     - "q_reject"
-delta:
+transitions:
   - params:
       initial_state: "q0"
       tape_input: "a"
