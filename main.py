@@ -47,32 +47,35 @@ class YAML_Turing:
 			yaml_temp = []
 			yaml_temp.append(f"{self.active_state}{''.join(self.cadena.cadena)}")
 			while self.active_state not in self.final_states:
-					prev_state, _, new_state, _, _ = self.iteration()
-					yaml_temp.append(f"{prev_state}{''.join(self.cadena.cadena)} - {new_state}{''.join(self.cadena.cadena)}")
-					self.active_state = new_state
+				prev_state, _, new_state, _, _ = self.iteration()
+				yaml_temp.append(f"{prev_state}{''.join(self.cadena.cadena)} - {new_state}{''.join(self.cadena.cadena)}")
+				self.active_state = new_state
 			is_accepted = self.active_state in self.accept_state
 			final_tape_output = ''.join(self.cadena.cadena).rstrip(self.blank_symbol)
 			return is_accepted, final_tape_output, yaml_temp
 		except: return False, "Error", "Error"
 
-MACHINE = "altering"
-Inputs = ["abbabb"]
+MACHINE = "identify"
+Inputs = [
+	"abbabb",
+	"baabaa",
+	"ababab",
+	"a",
+]
 
 with open(f"{MACHINE}_machine.yaml", "r") as file: config = yaml.safe_load(file)
-machine               = YAML_Turing()
-machine.cadena          = None
-machine.delta         = config["transitions"]
-machine.states        = config["q_states"]["q_list"]
-machine.alphabet      = config["alphabet"]
-machine.blank_symbol  = config["blank"]
-machine.final_states  = config["q_states"]["final"]
-machine.accept_state  = config["q_states"]["accept"]
-machine.active_state  = config["q_states"]["initial"]
-machine.tape_alphabet = config["tape_alphabet"]
-machine.initial_state = config["q_states"]["initial"]
-
-
 for Input in Inputs:
+	machine               = YAML_Turing()
+	machine.cadena          = None
+	machine.delta         = config["transitions"]
+	machine.states        = config["q_states"]["q_list"]
+	machine.alphabet      = config["alphabet"]
+	machine.blank_symbol  = config["blank"]
+	machine.final_states  = config["q_states"]["final"]
+	machine.accept_state  = config["q_states"]["accept"]
+	machine.active_state  = config["q_states"]["initial"]
+	machine.tape_alphabet = config["tape_alphabet"]
+	machine.initial_state = config["q_states"]["initial"]
 	machine.cadena = Cinta()
 	machine.cadena.cadena = list(Input)
 	machine.cadena.blank_s = machine.blank_symbol
@@ -80,4 +83,8 @@ for Input in Inputs:
 	result, tape, iterations = machine.execute()
 	print(f"\n\n---------------Cadena--------------\n{Input}\n--------Pasos de la Máquina--------")
 	for iteration in iterations: print(iteration)
-	print(f"-------------Resultado-------------\n{tape}\n----------Cadena aceptada----------\n{('SI✅' if result else 'No⛔')}\n\n")
+	if (MACHINE == "identify"):
+		print(f"----------Cadena aceptada----------\n{('SI✅' if result else 'No⛔')}\n\n")
+	else:
+		print(f"-------------Resultado-------------\n{tape}")
+	print(f"-----------------------------------\n\n")

@@ -73,7 +73,7 @@ transitions:
       tape_input: "a"
     output:
       final_state: "q2"
-      tape_output: "1"
+      tape_output: "C"
       tape_displacement: "1"
 
   - params:
@@ -81,7 +81,7 @@ transitions:
       tape_input: "b"
     output:
       final_state: "q2"
-      tape_output: "0"
+      tape_output: "L"
       tape_displacement: "1"
 
   - params:
