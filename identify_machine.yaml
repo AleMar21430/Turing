@@ -48,14 +48,6 @@ delta:
       tape_displacement: "0"
 
   - params:
-      initial_state: "q0"
-      tape_input: "X"
-    output:
-      final_state: "q0"
-      tape_output: "X"
-      tape_displacement: "1"
-
-  - params:
       initial_state: "q1"
       tape_input: "a"
     output:
@@ -78,13 +70,3 @@ delta:
       final_state: "q_reject"
       tape_output: "E"
       tape_displacement: "0"
-
-  - params:
-      initial_state: "q1"
-      tape_input: "X"
-    output:
-      final_state: "q1"
-      tape_output: "X"
-      tape_displacement: "1"
-
-simulation_strings:
